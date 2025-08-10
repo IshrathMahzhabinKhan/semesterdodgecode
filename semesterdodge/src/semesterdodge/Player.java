@@ -39,9 +39,9 @@ public class Player {
         velocityY += gravity;
 
         if (y + height >= ground) {
-            y = ground - height; // Reset on ground
+            y = ground - height; 
             jumping = false;
-            velocityY = 0; // reset velocity when on ground
+            velocityY = 0;
         }
     }
 

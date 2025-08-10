@@ -12,8 +12,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     public GamePanel(GameFrame frame) {
         setLayout(null);
         setFocusable(true);
-        requestFocusInWindow();
         addKeyListener(this);
+
+
+        SwingUtilities.invokeLater(() -> requestFocusInWindow());
 
         background = AssetLoader.load("res/background.png");
 
@@ -38,7 +40,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        
 
         if (background != null) {
             g.drawImage(background, 0, 0, getWidth(), getHeight(), null);
@@ -47,7 +48,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
             g.fillRect(0, 0, getWidth(), getHeight());
         }
 
-        // Draw player
         if (player != null) {
             player.draw(g);
         }
